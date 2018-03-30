@@ -51,9 +51,13 @@ public class ChainDemo {
 		MyHandler h2 = new MyHandler("h2");
 		MyHandler h3 = new MyHandler("h3");
 
+		// h1->h2
 		h1.setHandler(h2);
+		// h2->h3
 		h2.setHandler(h3);
 
+		// 开始调用h1
+		// 实际调用过程：h1.operator()->h2.operator()->h3.operator()
 		h1.operator();
 	}
 }
