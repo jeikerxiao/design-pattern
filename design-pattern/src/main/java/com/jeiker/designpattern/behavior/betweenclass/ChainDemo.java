@@ -58,6 +58,7 @@ public class ChainDemo {
 
 		// 开始调用h1
 		// 实际调用过程：h1.operator()->h2.operator()->h3.operator()
+		// 责任链: h1->h2->h3
 		h1.operator();
 	}
 }
