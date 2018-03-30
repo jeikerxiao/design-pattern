@@ -25,13 +25,14 @@ public class CommandDemo {
 
 		@Override
 		public void exe() {
+			System.out.println("2.Command call Receiver.");
 			receiver.action();
 		}
 	}
 	// 士兵（被调用者）
 	public static class Receiver {
 		public void action() {
-			System.out.println("command received!");
+			System.out.println("3.Receiver execute Command.");
 		}
 	}
 	// 司令（调用者，持有命令）
@@ -44,6 +45,7 @@ public class CommandDemo {
 		}
 
 		public void action() {
+			System.out.println("1.Invoker send Command.");
 			command.exe();
 		}
 	}

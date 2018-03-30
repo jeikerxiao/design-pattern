@@ -8,6 +8,7 @@ package com.jeiker.designpattern.behavior.betweenclass;
  只要我们把这些东西学会了，掌握好了，我们也可以写出自己的集合类，甚至框架！
  */
 public class IteratorDemo {
+
 	public interface Collection {
 
 		public Iterator iterator();
