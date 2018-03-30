@@ -10,29 +10,43 @@ package com.jeiker.designpattern.behavior.betweenclass;
 public class IteratorDemo {
 
 	public interface Collection {
-
-		public Iterator iterator();
-
-		/* 取得集合元素 */
-		public Object get(int i);
-
-		/* 取得集合大小 */
-		public int size();
+		/**
+		 * 迭代器
+		 */
+		Iterator iterator();
+		/**
+		 * 取得集合元素
+		 */
+		Object get(int i);
+		/**
+		 * 取得集合大小
+		 */
+		int size();
 	}
 
 	public interface Iterator {
-		// 前移
-		public Object previous();
+		/**
+		 * 取得第一个元素
+		 */
+		Object first();
+		/**
+		 * 前移
+		 */
+		Object previous();
+		/**
+		 * 后移
+		 */
+		Object next();
+		/**
+		 * 是否有下一个
+		 */
+		boolean hasNext();
 
-		// 后移
-		public Object next();
-
-		public boolean hasNext();
-
-		// 取得第一个元素
-		public Object first();
 	}
 
+	/**
+	 * 实现集合
+	 */
 	public static class MyCollection implements Collection {
 
 		public String string[] = { "A", "B", "C", "D", "E" };
@@ -53,6 +67,9 @@ public class IteratorDemo {
 		}
 	}
 
+	/**
+	 * 实现迭代器
+	 */
 	public static class MyIterator implements Iterator {
 
 		private Collection collection;

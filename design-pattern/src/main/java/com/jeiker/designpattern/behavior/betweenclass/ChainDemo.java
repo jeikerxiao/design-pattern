@@ -12,7 +12,7 @@ package com.jeiker.designpattern.behavior.betweenclass;
 public class ChainDemo {
 
 	public interface Handler {
-		public void operator();
+		void operator();
 	}
 
 	public static abstract class AbstractHandler {
@@ -39,7 +39,7 @@ public class ChainDemo {
 
 		@Override
 		public void operator() {
-			System.out.println(name + "deal!");
+			System.out.println(name + " deal!");
 			if (getHandler() != null) {
 				getHandler().operator();
 			}

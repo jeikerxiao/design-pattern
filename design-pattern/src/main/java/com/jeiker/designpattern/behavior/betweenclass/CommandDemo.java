@@ -12,7 +12,7 @@ package com.jeiker.designpattern.behavior.betweenclass;
 public class CommandDemo {
 	// 命令接口
 	public interface Command {
-		public void exe();
+		void exe();
 	}
 	// 命令 (持有命令接收者，实现命令接口)
 	public static class MyCommand implements Command {
