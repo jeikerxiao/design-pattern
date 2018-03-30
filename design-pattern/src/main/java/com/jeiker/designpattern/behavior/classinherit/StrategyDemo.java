@@ -10,10 +10,16 @@ package com.jeiker.designpattern.behavior.classinherit;
  */
 public class StrategyDemo {
 
+	/**
+	 * 算法接口
+	 */
 	public interface ICalculator {
-		public int calculate(String exp);
+		int calculate(String exp);
 	}
 
+	/**
+	 * 算法抽象
+	 */
 	public static abstract class AbstractCalculator {
 
 		public int[] split(String exp, String opt) {
@@ -25,6 +31,9 @@ public class StrategyDemo {
 		}
 	}
 
+	/**
+	 * 算法1：加法
+	 */
 	public static class Plus extends AbstractCalculator implements ICalculator {
 
 		@Override
@@ -34,6 +43,9 @@ public class StrategyDemo {
 		}
 	}
 
+	/**
+	 * 算法2：减法
+	 */
 	public static class Minus extends AbstractCalculator implements ICalculator {
 
 		@Override
@@ -44,6 +56,9 @@ public class StrategyDemo {
 
 	}
 
+	/**
+	 * 算法3：乘法
+	 */
 	public static class Multiply extends AbstractCalculator implements ICalculator {
 
 		@Override
@@ -57,6 +72,13 @@ public class StrategyDemo {
 		String exp = "2+8";
 		ICalculator cal = new Plus();
 		int result = cal.calculate(exp);
-		System.out.println(result);
+		System.out.printf("%s = %d", exp, result);
+
+		System.out.println();
+
+		String exp2 = "2-8";
+		ICalculator cal2 = new Minus();
+		int result2 = cal2.calculate(exp2);
+		System.out.printf("%s = %d", exp2, result2);
 	}
 }
