@@ -3,7 +3,8 @@ package com.jeiker.designpattern.behavior.middleclass;
 /**
  * 访问者模式
  *
- * 访问者模式是对象的行为模式。访问者模式的目的是封装一些施加于某种数据结构元素之上的操作。
+ * 访问者模式是对象的行为模式。
+ * 访问者模式的目的是: 封装一些施加于某种数据结构元素之上的操作。
  * 一旦这些操作需要修改的话，接受这个操作的数据结构则可以保持不变。
  * 该模式适用场景：如果我们想为一个现有的类增加新功能，不得不考虑几个事情：
  * 1、新功能会不会与现有功能出现兼容性问题？
@@ -13,13 +14,17 @@ package com.jeiker.designpattern.behavior.middleclass;
  */
 public class VisitorDemo {
 
-	// 银行柜台服务，以后银行要新增业务，只需要新增一个类实现这个接口就可以了。
+	/**
+	 * 银行柜台服务，以后银行要新增业务，只需要新增一个类实现这个接口就可以了。
+	 */
 	interface Service {
 
 		void accept(Visitor visitor);
 	}
 
-	// 来办业务的人，里面可以加上权限控制等等
+	/**
+	 * 来办业务的人，里面可以加上权限控制等等
+	 */
 	static class Visitor {
 
 		public void process(Service service) {
@@ -46,6 +51,7 @@ public class VisitorDemo {
 
 	static class Saving implements Service {
 
+		@Override
 		public void accept(Visitor visitor) {
 			visitor.process(this);
 
@@ -54,6 +60,7 @@ public class VisitorDemo {
 
 	static class Draw implements Service {
 
+		@Override
 		public void accept(Visitor visitor) {
 			visitor.process(this);
 
@@ -62,6 +69,7 @@ public class VisitorDemo {
 
 	static class Fund implements Service {
 
+		@Override
 		public void accept(Visitor visitor) {
 			visitor.process(this);
 
@@ -72,8 +80,10 @@ public class VisitorDemo {
 		Service saving = new Saving();
 		Service fund = new Fund();
 		Service draw = new Draw();
+
 		Visitor visitor = new Visitor();
 		Visitor guweiwei = new Visitor();
+
 		fund.accept(guweiwei);
 		saving.accept(visitor);
 		fund.accept(visitor);
