@@ -8,13 +8,14 @@ package com.jeiker.designpattern.struct;
  * 使用代理模式，可以将功能划分的更加清晰，有助于后期维护！
  */
 public class ProxyDemo {
+
     public static void main(String[] args) {
         Sourceable source = new Proxy();
         source.method();
     }
 
     public interface Sourceable {
-        public void method();
+        void method();
     }
 
     public static class Source implements Sourceable {

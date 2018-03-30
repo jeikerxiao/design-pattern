@@ -13,7 +13,9 @@ import java.util.Vector;
 public class FlyweightDemo {
     private Vector<Connection> pool;
 
-    /* 公有属性 */
+    /**
+     *  公有属性
+     */
     private String url = "jdbc:mysql://localhost:3306/test";
     private String username = "root";
     private String password = "root";
@@ -23,7 +25,9 @@ public class FlyweightDemo {
     private static FlyweightDemo instance = null;
     Connection conn = null;
 
-    /* 构造方法，做一些初始化工作 */
+    /**
+     *  构造方法，做一些初始化工作
+     */
     private FlyweightDemo() {
         pool = new Vector<Connection>(poolSize);
 
@@ -40,12 +44,16 @@ public class FlyweightDemo {
         }
     }
 
-    /* 返回连接到连接池 */
+    /**
+     *  返回连接到连接池
+     */
     public synchronized void release() {
         pool.add(conn);
     }
 
-    /* 返回连接池中的一个数据库连接 */
+    /**
+     *  返回连接池中的一个数据库连接
+     */
     public synchronized Connection getConnection() {
         if (pool.size() > 0) {
             Connection conn = pool.get(0);

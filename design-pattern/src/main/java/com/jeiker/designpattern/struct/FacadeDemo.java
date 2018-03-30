@@ -9,6 +9,7 @@ package com.jeiker.designpattern.struct;
  * 有了Computer类，他们之间的关系被放在了Computer类里，这样就起到了解耦的作用，这，就是外观模式！
  */
 public class FacadeDemo {
+
     public static void main(String[] args) {
         Computer computer = new Computer();
         computer.startup();

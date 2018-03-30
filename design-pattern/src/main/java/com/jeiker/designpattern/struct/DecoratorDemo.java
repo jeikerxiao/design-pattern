@@ -7,8 +7,9 @@ package com.jeiker.designpattern.struct;
  * 缺点：产生过多相似的对象，不易排错
  */
 public class DecoratorDemo {
+
     public interface Sourceable {
-        public void method();
+        void method();
     }
 
     public static class Source implements Sourceable {

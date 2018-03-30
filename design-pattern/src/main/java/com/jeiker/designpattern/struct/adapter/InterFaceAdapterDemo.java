@@ -1,6 +1,8 @@
 package com.jeiker.designpattern.struct.adapter;
 
-// 接口的适配器模式
+/**
+ * 接口的适配器模式
+ */
 public abstract class InterFaceAdapterDemo implements Targetable {
     public void method1() {
     }
