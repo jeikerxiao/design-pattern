@@ -4,7 +4,9 @@ import com.jeiker.designpattern.create.util.MailSender;
 import com.jeiker.designpattern.create.util.Sender;
 import com.jeiker.designpattern.create.util.SmsSender;
 
-// 静态工厂模式
+/**
+ * 静态工厂模式
+ */
 public class StaticFactoryDemo {
 
     public static Sender produceMail() {

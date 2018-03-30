@@ -7,7 +7,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-// 原型模式：浅复制，深复制
+/**
+ * 原型模式：浅复制，深复制
+ */
 public class PrototypeDemo implements Cloneable, Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,6 +18,7 @@ public class PrototypeDemo implements Cloneable, Serializable {
     private SerializableObject obj;
 
     /* 浅复制 */
+    @Override
     public Object clone() throws CloneNotSupportedException {
         PrototypeDemo proto = (PrototypeDemo) super.clone();
         return proto;

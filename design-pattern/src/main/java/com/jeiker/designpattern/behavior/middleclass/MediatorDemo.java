@@ -2,9 +2,9 @@ package com.jeiker.designpattern.behavior.middleclass;
 
 /**
  * 中介者模式
- *
+ * <p>
  * 只需关心和Mediator类的关系，具体类类之间的关系及调度交给Mediator就行，这有点像spring容器的作用。
- *
+ * <p>
  * User类统一接口，User1和User2分别是不同的对象，二者之间有关联，如果不采用中介者模式，则需要二者相互持有引用，这样二者的耦合度很高，
  * 为了解耦，引入了Mediator类，提供统一接口，MyMediator为其实现类，里面持有User1和User2的实例，
  * 用来实现对User1和User2的控制。这样User1和User2两个对象相互独立，
@@ -12,92 +12,92 @@ package com.jeiker.designpattern.behavior.middleclass;
  */
 public class MediatorDemo {
 
-	/**
-	 * 中间人接口
-	 */
-	public interface Mediator {
-		/**
-		 * 创建中间人
-		 */
-		void createMediator();
+    /**
+     * 中间人接口
+     */
+    public interface Mediator {
+        /**
+         * 创建中间人
+         */
+        void createMediator();
 
-		/**
-		 * 工作
-		 */
-		void workAll();
-	}
+        /**
+         * 工作
+         */
+        void workAll();
+    }
 
-	/**
-	 * 实现中间人（持有user1和user2）
-	 */
-	public static class MyMediator implements Mediator {
+    /**
+     * 实现中间人（持有user1和user2）
+     */
+    public static class MyMediator implements Mediator {
 
-		private User user1;
-		private User user2;
+        private User user1;
+        private User user2;
 
-		public User getUser1() {
-			return user1;
-		}
+        public User getUser1() {
+            return user1;
+        }
 
-		public User getUser2() {
-			return user2;
-		}
+        public User getUser2() {
+            return user2;
+        }
 
-		@Override
-		public void createMediator() {
-			user1 = new User1(this);
-			user2 = new User2(this);
-		}
+        @Override
+        public void createMediator() {
+            user1 = new User1(this);
+            user2 = new User2(this);
+        }
 
-		@Override
-		public void workAll() {
-			user1.work();
-			user2.work();
-		}
-	}
+        @Override
+        public void workAll() {
+            user1.work();
+            user2.work();
+        }
+    }
 
-	public static abstract class User {
+    public static abstract class User {
 
-		private Mediator mediator;
+        private Mediator mediator;
 
-		public Mediator getMediator() {
-			return mediator;
-		}
+        public Mediator getMediator() {
+            return mediator;
+        }
 
-		public User(Mediator mediator) {
-			this.mediator = mediator;
-		}
+        public User(Mediator mediator) {
+            this.mediator = mediator;
+        }
 
-		public abstract void work();
-	}
+        public abstract void work();
+    }
 
-	public static class User1 extends User {
+    public static class User1 extends User {
 
-		public User1(Mediator mediator) {
-			super(mediator);
-		}
+        public User1(Mediator mediator) {
+            super(mediator);
+        }
 
-		@Override
-		public void work() {
-			System.out.println("user1 exe!");
-		}
-	}
+        @Override
+        public void work() {
+            System.out.println("user1 exe!");
+        }
+    }
 
-	public static class User2 extends User {
+    public static class User2 extends User {
 
-		public User2(Mediator mediator) {
-			super(mediator);
-		}
+        public User2(Mediator mediator) {
+            super(mediator);
+        }
 
-		@Override
-		public void work() {
-			System.out.println("user2 exe!");
-		}
-	}
+        @Override
+        public void work() {
+            System.out.println("user2 exe!");
+        }
+    }
 
-	public static void main(String[] args) {
-		Mediator mediator = new MyMediator();
-		mediator.createMediator();
-		mediator.workAll();
-	}
+    public static void main(String[] args) {
+        Mediator mediator = new MyMediator();
+        mediator.createMediator();
+        mediator.workAll();
+    }
 }

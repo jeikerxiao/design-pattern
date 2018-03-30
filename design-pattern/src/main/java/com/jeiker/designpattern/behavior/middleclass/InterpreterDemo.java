@@ -2,7 +2,7 @@ package com.jeiker.designpattern.behavior.middleclass;
 
 /**
  * 解释器模式
- *
+ * <p>
  * 解释器模式用来做各种各样的解释器，如正则表达式等的解释器等等！
  */
 public class InterpreterDemo {

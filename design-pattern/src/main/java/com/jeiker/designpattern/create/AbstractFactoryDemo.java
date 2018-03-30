@@ -4,13 +4,10 @@ import com.jeiker.designpattern.create.util.MailSender;
 import com.jeiker.designpattern.create.util.Sender;
 import com.jeiker.designpattern.create.util.SmsSender;
 
-// 抽象工厂模式
+/**
+ * 抽象工厂模式
+ */
 public class AbstractFactoryDemo {
-    public static void main(String[] args) {
-        Provider provider = new SendMailFactory();
-        Sender sender = provider.produce();
-        sender.Send();
-    }
 
     public interface Provider {
         public Sender produce();
@@ -30,5 +27,11 @@ public class AbstractFactoryDemo {
         public Sender produce() {
             return new SmsSender();
         }
+    }
+
+    public static void main(String[] args) {
+        Provider provider = new SendMailFactory();
+        Sender sender = provider.produce();
+        sender.Send();
     }
 }
