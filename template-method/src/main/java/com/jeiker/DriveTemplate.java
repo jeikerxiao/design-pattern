@@ -1,12 +1,15 @@
 package com.jeiker;
 
 /**
- * Description: design-pattern
+ * Description: 模板类
  * User: jeikerxiao
  * Date: 2019/3/15 11:43 AM
  */
 public abstract class DriveTemplate {
 
+    /**
+     * 有执行顺序
+     */
     public final void drive() {
         openDoor();
         startEngine();
