@@ -8,7 +8,7 @@ package com.jeiker;
 public abstract class DriveTemplate {
 
     /**
-     * 有执行顺序
+     * 有执行顺序,不能被子类修改
      */
     public final void drive() {
         openDoor();
